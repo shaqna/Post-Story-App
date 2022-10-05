@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">PostStory</string>
+    <string name="lorem_ipsum" translatable="false">Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsu....</string>
+    <string name="cancel">Cancel</string>
+    <string name="logout_dialog_title">Are you sure?</string>
+    <string name="logout_dialog_message">You need to login again after logout</string>
+    <string name="logout">Logout</string>
+    <string name="logout_message_success">Logged out successfully</string>
+    <string name="detail_story">Detail Story</string>
+    <string name="image_posted">Image posted</string>
+    <string name="back_button">Back Button</string>
+    <string name="button_menu">button menu</string>
+    <string name="button_add_new_story">button add new story</string>
+    <string name="login">Login</string>
+    <string name="welcome">Welcome</string>
+    <string name="image_welcome">Image Welcome</string>
+    <string name="register">Register</string>
+    <string name="settings">Settings</string>
+    <string name="language_settings">Language Settings</string>
+    <string name="add_photo">Add photo</string>
+    <string name="pick_your_image">Pick your image</string>
+    <string name="posting">Posting</string>
+    <string name="hint_description">Description</string>
+    <string name="take_a_picture">Take a picture</string>
+    <string name="photo_album">Photo Album</string>
+    <string name="post_story">Post Story</string>
+    <string name="share_location">Share Location</string>
+    <string name="please_activate_location_message">Please activate your location services</string>
+    <string name="location_permission_denied">Location permission not allowed</string>
+    <string name="location_permission_denied_action">Change Setting</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="normal_type">Normal</string>
+    <string name="satellite_type">Satellite</string>
+    <string name="terrain_type">Terrain</string>
+    <string name="hybrid_type">Hybrid</string>
+    <string name="show_stories_in_map">Show stories in map</string>
+</resources>
