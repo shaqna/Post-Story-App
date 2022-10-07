@@ -5,10 +5,10 @@ import com.ngedev.postcat.data.source.response.ApiResponse
 import com.ngedev.postcat.data.source.response.LoginResponse
 import com.ngedev.postcat.data.source.response.RegisterResponse
 import com.ngedev.postcat.data.source.service.AuthRemote
-import com.ngedev.postcat.domain.state.Resource
 import com.ngedev.postcat.domain.model.LoginRequest
 import com.ngedev.postcat.domain.model.RegisterRequest
 import com.ngedev.postcat.domain.repository.AuthRepository
+import com.ngedev.postcat.domain.state.Resource
 import kotlinx.coroutines.flow.Flow
 
 class AuthRepositoryImpl(private val authRemote: AuthRemote): AuthRepository {

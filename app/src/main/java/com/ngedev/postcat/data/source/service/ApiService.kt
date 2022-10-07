@@ -1,9 +1,9 @@
 package com.ngedev.postcat.data.source.service
 
 import com.ngedev.postcat.data.source.response.LoginResponse
+import com.ngedev.postcat.data.source.response.PostStoryResponse
 import com.ngedev.postcat.data.source.response.RegisterResponse
 import com.ngedev.postcat.data.source.response.StoriesResponse
-import com.ngedev.postcat.data.source.response.PostStoryResponse
 import com.ngedev.postcat.domain.model.LoginRequest
 import com.ngedev.postcat.domain.model.RegisterRequest
 import com.ngedev.postcat.utils.Constants

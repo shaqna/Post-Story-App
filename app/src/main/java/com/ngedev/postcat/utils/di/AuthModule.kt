@@ -5,10 +5,10 @@ import com.ngedev.postcat.domain.repository.AuthRepository
 import com.ngedev.postcat.domain.usecase.auth.AuthInteractor
 import com.ngedev.postcat.domain.usecase.auth.AuthUseCase
 import com.ngedev.postcat.ui.auth.AuthViewModel
-import org.koin.core.module.dsl.bind
-import org.koin.dsl.module
-import org.koin.core.module.dsl.factoryOf
 import org.koin.androidx.viewmodel.dsl.viewModelOf
+import org.koin.core.module.dsl.bind
+import org.koin.core.module.dsl.factoryOf
+import org.koin.dsl.module
 
 object AuthModule {
 

@@ -2,7 +2,6 @@ package com.ngedev.postcat.domain.usecase.story
 
 import androidx.paging.PagingData
 import com.ngedev.postcat.data.source.response.PostStoryResponse
-import com.ngedev.postcat.data.source.response.StoriesResponse
 import com.ngedev.postcat.domain.model.Story
 import com.ngedev.postcat.domain.state.Resource
 import kotlinx.coroutines.flow.Flow

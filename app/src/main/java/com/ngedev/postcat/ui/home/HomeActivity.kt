@@ -3,7 +3,6 @@ package com.ngedev.postcat.ui.home
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
@@ -12,14 +11,13 @@ import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.ngedev.postcat.databinding.ActivityHomeBinding
-import com.ngedev.postcat.domain.model.Story
 import com.ngedev.postcat.external.AppSharedPreference
 import com.ngedev.postcat.ui.detail.DetailActivity
 import com.ngedev.postcat.ui.maps.MapsActivity
 import com.ngedev.postcat.ui.post.PostStoryActivity
 import com.ngedev.postcat.ui.settings.SettingsActivity
 import com.ngedev.postcat.utils.di.HomeModule.homeModule
-import kotlinx.coroutines.flow.collect
+import com.ngedev.postcat.utils.di.PrefsModule.appPrefsModule
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
@@ -53,7 +51,7 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        loadKoinModules(homeModule)
+        loadKoinModules(listOf(homeModule, appPrefsModule))
 
         prefs.fetchAccessToken()?.let {
             Log.d("MyTOKEN : ", it)
@@ -164,7 +162,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun showProgressBar(state: Boolean) {
-        binding.progressBar.isVisible = state
+        binding.progressBarHome.isVisible = state
     }
 
 }

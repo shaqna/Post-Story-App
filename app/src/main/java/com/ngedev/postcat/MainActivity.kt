@@ -1,8 +1,8 @@
 package com.ngedev.postcat
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.ngedev.postcat.databinding.ActivityMainBinding
 import com.ngedev.postcat.ui.auth.LoginActivity
 import com.ngedev.postcat.ui.auth.RegisterActivity

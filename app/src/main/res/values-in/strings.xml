@@ -30,9 +30,5 @@
     <string name="location_permission_denied">Izin lokasi ditolak</string>
     <string name="location_permission_denied_action">Ubah pengaturan</string>
     <string name="title_activity_maps">MapsActivity</string>
-    <string name="normal_type">Normal</string>
-    <string name="satellite_type">Satellite</string>
-    <string name="terrain_type">Terrain</string>
-    <string name="hybrid_type">Hybrid</string>
     <string name="show_stories_in_map">Show stories in map</string>
 </resources>

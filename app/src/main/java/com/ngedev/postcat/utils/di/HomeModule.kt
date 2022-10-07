@@ -5,10 +5,10 @@ import com.ngedev.postcat.domain.repository.StoryRepository
 import com.ngedev.postcat.domain.usecase.story.StoryInteractor
 import com.ngedev.postcat.domain.usecase.story.StoryUseCase
 import com.ngedev.postcat.ui.home.HomeViewModel
+import org.koin.androidx.viewmodel.dsl.viewModelOf
 import org.koin.core.module.dsl.bind
 import org.koin.core.module.dsl.factoryOf
 import org.koin.dsl.module
-import org.koin.androidx.viewmodel.dsl.viewModelOf
 
 
 object HomeModule {

@@ -1,16 +1,11 @@
 package com.ngedev.postcat.ui.views
 
 import android.content.Context
-import android.graphics.Canvas
 import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
 import android.util.AttributeSet
-import android.view.MotionEvent
-import android.view.View
 import androidx.appcompat.widget.AppCompatEditText
-import androidx.core.content.ContextCompat
-import com.ngedev.postcat.R
 
 class PasswordFieldCustom : AppCompatEditText {
 

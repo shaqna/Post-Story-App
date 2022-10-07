@@ -1,12 +1,10 @@
 package com.ngedev.postcat.data.source
 
-import androidx.paging.*
-import androidx.room.RoomDatabase
-import androidx.room.withTransaction
-import com.ngedev.postcat.data.source.local.LocalDatabase
+import androidx.paging.ExperimentalPagingApi
+import androidx.paging.LoadType
+import androidx.paging.PagingState
+import androidx.paging.RemoteMediator
 import com.ngedev.postcat.data.source.local.RemoteKeys
-import com.ngedev.postcat.data.source.response.StoriesResponse
-import com.ngedev.postcat.domain.model.Story
 import com.ngedev.postcat.utils.wrapEspressoIdlingResource
 
 

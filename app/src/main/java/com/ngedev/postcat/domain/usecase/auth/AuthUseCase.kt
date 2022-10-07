@@ -1,11 +1,10 @@
 package com.ngedev.postcat.domain.usecase.auth
 
 import com.ngedev.postcat.data.source.response.LoginResponse
-import com.ngedev.postcat.data.source.response.LoginResult
 import com.ngedev.postcat.data.source.response.RegisterResponse
-import com.ngedev.postcat.domain.state.Resource
 import com.ngedev.postcat.domain.model.LoginRequest
 import com.ngedev.postcat.domain.model.RegisterRequest
+import com.ngedev.postcat.domain.state.Resource
 import kotlinx.coroutines.flow.Flow
 
 interface AuthUseCase {

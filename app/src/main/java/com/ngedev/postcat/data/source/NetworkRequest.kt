@@ -2,7 +2,6 @@ package com.ngedev.postcat.data.source
 
 import com.ngedev.postcat.data.source.response.ApiResponse
 import com.ngedev.postcat.domain.state.Resource
-import com.ngedev.postcat.domain.usecase.story.StoryUseCase
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow

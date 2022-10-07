@@ -17,7 +17,7 @@ class StoryRemote(private val service: ApiService) {
     suspend fun getAllStoriesWithLocation(): Flow<ApiResponse<StoriesResponse>> =
         flow {
             try {
-                val response = service.getAllStories(size = 30, location = 1)
+                val response = service.getAllStories(location = 1)
                 emit(ApiResponse.Success(response))
             } catch (e: Exception) {
                 emit(ApiResponse.Error(e.message.toString()))

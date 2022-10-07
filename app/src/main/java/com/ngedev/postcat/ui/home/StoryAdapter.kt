@@ -1,8 +1,6 @@
 package com.ngedev.postcat.ui.home
 
 import android.app.Activity
-import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.app.ActivityOptionsCompat
@@ -12,20 +10,10 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.ngedev.postcat.databinding.StoryItemBinding
 import com.ngedev.postcat.domain.model.Story
-import com.ngedev.postcat.ui.detail.DetailActivity
 import com.ngedev.postcat.utils.helper.DateConverter
 import com.ngedev.postcat.utils.helper.ImageBinder
 
-class StoryAdapter: PagingDataAdapter<Story, StoryAdapter.StoryViewHolder>(
-    object: DiffUtil.ItemCallback<Story>() {
-        override fun areItemsTheSame(oldItem: Story, newItem: Story): Boolean =
-            oldItem.id == newItem.id
-
-        override fun areContentsTheSame(oldItem: Story, newItem: Story): Boolean =
-            oldItem.id == newItem.id
-
-    }
-) {
+class StoryAdapter: PagingDataAdapter<Story, StoryAdapter.StoryViewHolder>(DiffCallBack) {
 
     var onClickListener: ((Story, ActivityOptionsCompat) -> Unit)? = null
 
@@ -61,6 +49,17 @@ class StoryAdapter: PagingDataAdapter<Story, StoryAdapter.StoryViewHolder>(
 
                 }
             }
+        }
+    }
+
+    companion object {
+        val DiffCallBack = object: DiffUtil.ItemCallback<Story>() {
+            override fun areItemsTheSame(oldItem: Story, newItem: Story): Boolean =
+                oldItem.id == newItem.id
+
+            override fun areContentsTheSame(oldItem: Story, newItem: Story): Boolean =
+                oldItem.id == newItem.id
+
         }
     }
 }

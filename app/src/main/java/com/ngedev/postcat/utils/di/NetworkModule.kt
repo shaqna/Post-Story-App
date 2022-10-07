@@ -2,9 +2,10 @@ package com.ngedev.postcat.utils.di
 
 import android.content.Context
 import com.ngedev.postcat.data.source.service.ApiService
-import com.ngedev.postcat.external.AuthInterceptor
 import com.ngedev.postcat.external.AppSharedPreference
+import com.ngedev.postcat.external.AuthInterceptor
 import com.ngedev.postcat.utils.Constants
+import com.ngedev.postcat.utils.Constants.BASE_URL_MOCK
 import okhttp3.OkHttpClient
 import org.koin.android.ext.koin.androidApplication
 import org.koin.core.module.dsl.singleOf
@@ -26,7 +27,7 @@ object NetworkModule {
 
     val retrofitModule = module {
         single {
-            val retrofit = Retrofit.Builder().baseUrl(Constants.BASE_URL)
+            val retrofit = Retrofit.Builder().baseUrl(BASE_URL_MOCK ?:Constants.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(
                     OkHttpClient.Builder().addInterceptor(get<AuthInterceptor>()).build()
