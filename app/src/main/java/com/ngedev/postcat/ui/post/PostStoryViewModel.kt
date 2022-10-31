@@ -1,5 +1,6 @@
 package com.ngedev.postcat.ui.post
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -16,7 +17,7 @@ class PostStoryViewModel(private val useCase: StoryUseCase): ViewModel() {
     val isError = _isError
 
     private val  _isSuccess = MutableLiveData<PostStoryResponse>()
-    val isSuccess = _isSuccess
+    val isSuccess: LiveData<PostStoryResponse> = _isSuccess
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading = _isLoading

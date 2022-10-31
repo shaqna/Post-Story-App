@@ -6,10 +6,14 @@ import com.ngedev.postcat.data.source.response.StoriesResponse
 import com.ngedev.postcat.domain.state.Resource
 import com.ngedev.postcat.domain.usecase.maps.MapsUseCase
 import com.ngedev.postcat.utils.CoroutinesTestRule
+import com.ngedev.postcat.utils.DataDummy
+import com.ngedev.postcat.utils.getOrAwaitValue
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -46,10 +50,15 @@ class MapsViewModelTest {
 
     @Test
     fun `get all stories with location successfully`() = runTest {
-        val flowData: Flow<Resource<StoriesResponse>> = flow { fakeList }
+        val flowData: Flow<Resource<StoriesResponse>> =
+            flowOf(Resource.Success(DataDummy.generateDummyStoriesResponse()))
 
         Mockito.`when`(mapsUseCase.getAllStoriesWithLocation()).thenReturn(flowData)
-        viewModel.getAllStoriesWithLocation().observeForever(storiesObserver)
+
+        assertEquals(
+            DataDummy.generateDummyStoriesResponse(),
+            viewModel.getAllStoriesWithLocation().getOrAwaitValue().data
+        )
 
         Mockito.verify(mapsUseCase).getAllStoriesWithLocation()
     }

@@ -8,9 +8,12 @@ import com.ngedev.postcat.domain.state.Resource
 import com.ngedev.postcat.domain.usecase.story.StoryUseCase
 import com.ngedev.postcat.utils.CoroutinesTestRule
 import com.ngedev.postcat.utils.DataDummy
+import com.ngedev.postcat.utils.getOrAwaitValue
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -63,17 +66,17 @@ class PostStoryViewModelTest {
 
     @Test
     fun `upload story successfully`() = runTest {
-        val isSuccess = MutableLiveData<PostStoryResponse>()
-        isSuccess.value = DataDummy.generateDummyPostStoryResponse()
+        val expectedResponse = DataDummy.generateDummyPostStoryResponse()
 
-        val flowData: Flow<Resource<PostStoryResponse>> = flow { fakePostResponse }
+        val flowData: Flow<Resource<PostStoryResponse>> =
+            flowOf(Resource.Success(DataDummy.generateDummyPostStoryResponse()))
 
         `when`(useCase.uploadStory(photo, description, lat, lon)).thenReturn(flowData)
-        useCase.uploadStory(photo, description, lat, lon).collect {
-            assertEquals(it.data, isSuccess)
+        viewModel.uploadStory(photo, description, lat, lon).apply {
+            advanceUntilIdle()
         }
+        assertEquals(expectedResponse, viewModel.isSuccess.getOrAwaitValue())
 
-        viewModel.isSuccess.observeForever(successObserver)
         Mockito.verify(useCase).uploadStory(photo, description, lat, lon)
     }
 

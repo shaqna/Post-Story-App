@@ -74,7 +74,7 @@ class HomeActivityTest {
         onView(withId(R.id.mapsStories)).check(matches(isDisplayed()))
         onView(withId(R.id.btnSettings)).check(matches(isDisplayed()))
         onView(withId(R.id.rvStories)).check(matches(isDisplayed()))
-        onView(withId(R.id.progressBar_home)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.GONE)))
+        onView(withId(R.id.progressBar_home)).check(matches(withEffectiveVisibility(Visibility.GONE)))
         onView(withId(R.id.rvStories)).perform(
             RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(
                 10

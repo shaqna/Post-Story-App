@@ -2,11 +2,14 @@ package com.ngedev.postcat.data.source.service
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.ngedev.postcat.data.source.response.ApiResponse
+import com.ngedev.postcat.data.source.response.LoginResponse
+import com.ngedev.postcat.data.source.response.RegisterResponse
 import com.ngedev.postcat.domain.model.LoginRequest
 import com.ngedev.postcat.domain.model.RegisterRequest
 import com.ngedev.postcat.utils.CoroutinesTestRule
 import com.ngedev.postcat.utils.DataDummy
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.*
 import org.junit.Before
@@ -49,16 +52,9 @@ class AuthRemoteTest {
 
         Mockito.`when`(authService.login(loginRequest)).thenReturn(expectedSuccessResponse)
 
-        authRemote.login(loginRequest).collect {
-            when(it) {
-                is ApiResponse.Success -> {
-                    assertTrue(!it.data.error)
-                    assertNotNull(it.data)
-                    assertEquals(expectedSuccessResponse, it.data)
-                }
-                else -> {}
-            }
-        }
+        val actualResponse = authRemote.login(loginRequest).first()
+
+        assertEquals(expectedSuccessResponse, (actualResponse as ApiResponse.Success).data)
     }
 
     @Test
@@ -67,15 +63,8 @@ class AuthRemoteTest {
 
         Mockito.`when`(authService.createUser(registerRequest)).thenReturn(expectedSuccessResponse)
 
-        authRemote.createUser(registerRequest).collect {
-            when(it) {
-                is ApiResponse.Success -> {
-                    assertTrue(!it.data.error)
-                    assertNotNull(it.data)
-                    assertEquals(expectedSuccessResponse, it.data)
-                }
-                else -> {}
-            }
-        }
+        val actualResponse = authRemote.createUser(registerRequest).first()
+
+        assertEquals(expectedSuccessResponse, (actualResponse as ApiResponse.Success).data)
     }
 }

@@ -2,9 +2,13 @@ package com.ngedev.postcat.data.source.service
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.ngedev.postcat.data.source.response.ApiResponse
+import com.ngedev.postcat.data.source.response.LoginResponse
+import com.ngedev.postcat.data.source.response.PostStoryResponse
+import com.ngedev.postcat.data.source.response.StoriesResponse
 import com.ngedev.postcat.utils.CoroutinesTestRule
 import com.ngedev.postcat.utils.DataDummy
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -64,16 +68,8 @@ class StoryRemoteTest {
 
         Mockito.`when`(apiService.getAllStories(location = 1)).thenReturn(expectedSuccessResponse)
 
-        storyRemote.getAllStoriesWithLocation().collect {
-            when(it) {
-                is ApiResponse.Success -> {
-                    assertTrue(it.data.listStory.isNotEmpty())
-                    assertNotNull(it)
-                    assertEquals(expectedSuccessResponse, it.data)
-                }
-                else -> {}
-            }
-        }
+        val actualResponse = storyRemote.getAllStoriesWithLocation().first()
+        assertEquals(expectedSuccessResponse, (actualResponse as ApiResponse.Success).data)
 
     }
 
@@ -83,14 +79,9 @@ class StoryRemoteTest {
 
         Mockito.`when`(apiService.uploadStory(photo,description, lat, lon)).thenReturn(expectedSuccessResponse)
 
-        storyRemote.uploadStory(photo, description, lat, lon).collect {
-            when(it) {
-                is ApiResponse.Success -> {
-                    assertTrue(!it.data.error)
-                }
-                else -> {}
-            }
-        }
+        val actualResponse = storyRemote.uploadStory(photo, description, lat, lon).first()
+
+        assertEquals(expectedSuccessResponse, (actualResponse as ApiResponse.Success).data)
     }
 
 }
