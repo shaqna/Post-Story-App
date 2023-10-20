@@ -251,7 +251,6 @@ class PostStoryActivity : AppCompatActivity() {
 
             getFile = convertBitmapToFile(result, myFile.path)
 
-
             binding.ivAddStory.setImageBitmap(result)
         }
     }

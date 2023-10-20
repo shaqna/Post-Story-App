@@ -16,7 +16,6 @@ interface StoryDao {
     @Query("SELECT * FROM story")
     fun getAllStories(): PagingSource<Int, Story>
 
-
     @Query("DELETE FROM story")
     fun deleteAll()
 }

@@ -30,7 +30,6 @@ class NameFieldCustom : AppCompatEditText, View.OnTouchListener {
 
     private fun init() {
         setOnTouchListener(this)
-
     }
 
 

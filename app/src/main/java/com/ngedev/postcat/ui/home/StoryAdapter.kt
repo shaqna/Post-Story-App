@@ -45,8 +45,6 @@ class StoryAdapter: PagingDataAdapter<Story, StoryAdapter.StoryViewHolder>(DiffC
                             Pair(tvStoryDescription, "description")
                         )
                     onClickListener?.invoke(item,optionsCompat)
-
-
                 }
             }
         }
